@@ -1,16 +1,16 @@
 import React, {useEffect, use} from "react";
 import {connect} from "react-redux";
 import ProductEntry from "./ProductEntry";
-import {onDataRequestSuccess, onDataRequestError} from "../actions";
+import {onDataRequestSuccessAction, onDataRequestErrorAction} from "../actions";
 import {getAllProducts} from "../services/productsAPI";
 
 const ProductList = ({dispatch, products}) => {
 
     useEffect(() => {
         getAllProducts().then(response => {
-            dispatch(onDataRequestSuccess(response.data))
+            dispatch(onDataRequestSuccessAction(response.data))
         }).catch(error => {
-            dispatch(onDataRequestError(error));
+            dispatch(onDataRequestErrorAction(error));
         });
     }, []);
 

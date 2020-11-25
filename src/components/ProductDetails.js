@@ -5,8 +5,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const ProductDetails = ({product}) => {
 
-    console.log(product.icon);
-
     return <div className='split right text-center'>
         <div className='centered'>
             <div>

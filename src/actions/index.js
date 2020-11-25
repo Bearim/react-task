@@ -15,12 +15,12 @@ export const removeProductAction = id => ({
 });
 
 
-export const onDataRequestSuccess = data => ({
+export const onDataRequestSuccessAction = data => ({
     type: 'RECEIVED_DATA',
     data: data
 });
 
-export const onDataRequestError = error => ({
+export const onDataRequestErrorAction = error => ({
     type: 'DATA_REQUEST_ERROR',
     error: error
 });
