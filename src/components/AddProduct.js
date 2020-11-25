@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import {Button} from "reactstrap";
-import {faFish} from '@fortawesome/free-solid-svg-icons'
 import {IconSelect} from "./IconSelect";
 import {connect} from "react-redux";
 import {addProductAction} from "../actions";
-import {Icons as icons} from "./common/Icons";
+import {Icons as icons} from "../common/Icons";
 
 const AddProduct = ({dispatch}) => {
 
@@ -54,7 +53,7 @@ const AddProduct = ({dispatch}) => {
 
                 <IconSelect default={product.icon} onChange={handleIconChange}/>
 
-                <Button onClick={() => addProduct()}>Add to list</Button>
+                <Button onClick={addProduct}>Add to list</Button>
             </div>
         </div>
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Icons as icons} from "./common/Icons";
+import {Icons as icons} from "../common/Icons";
 
 export const IconSelect = props => {
 
