@@ -6,7 +6,7 @@ import {getProductsAction} from "../actions";
 const ProductList = ({dispatch, products}) => {
 
     useEffect(()=>{
-        dispatch(getProductsAction());
+        !products.length && dispatch(getProductsAction());
     }, [])
 
     const getTotalPrice = products.reduce((accumulator, product) => accumulator + product.price * product.amount, 0);

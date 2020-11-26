@@ -1,24 +1,27 @@
-import React, {Suspense} from 'react';
+import React, {Suspense, lazy} from 'react';
 import './App.css';
 import AddProduct from "./components/AddProduct";
-import ProductList from "./components/ProductList";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import ProductDetails from "./components/ProductDetails";
 import {connect} from "react-redux";
+
+const ProductDetails = lazy(() => import('./components/ProductDetails'));
+const ProductList = lazy(() => import('./components/ProductList'));
 
 function App() {
     return (
             <div className='wrapper'>
                 <AddProduct/>
                 <BrowserRouter>
-                    <Switch>
-                        <Route exact path='/'>
-                            <ProductList/>
-                        </Route>
-                        <Route exact path='/:id'>
-                            <ProductDetails/>
-                        </Route>
-                    </Switch>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Switch>
+                            <Route exact path='/'>
+                                <ProductList/>
+                            </Route>
+                            <Route exact path='/:id'>
+                                <ProductDetails/>
+                            </Route>
+                        </Switch>
+                    </Suspense>
                 </BrowserRouter>
             </div>
     );

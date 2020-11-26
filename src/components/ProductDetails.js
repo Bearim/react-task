@@ -12,7 +12,7 @@ const ProductDetails = ({product}) => {
             <div>
                 <b>{name}</b>
             </div>
-            <div className='icon'>
+            <div className='Icon'>
                 <FontAwesomeIcon className='fa-5x' icon={product.icon}/>
             </div>
             <div>Count: {amount}</div>
