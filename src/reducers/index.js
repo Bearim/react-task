@@ -1,10 +1,11 @@
 import {combineReducers} from "redux";
 import uuid from "react-uuid";
-import {Icons as icons} from "../components/common/Icons";
+import {Icons as icons} from "../common/Icons";
+import {ProductActions} from "../common/ProductActions";
 
 const products = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_PRODUCT':
+        case ProductActions.ADD_PRODUCT:
             return [
                 ...state,
                 {
@@ -16,30 +17,21 @@ const products = (state = [], action) => {
                 }
             ];
 
-        case 'REMOVE_PRODUCT':
+        case ProductActions.REMOVE_PRODUCT:
             return state.filter(product => product.id !== action.id);
 
-        case 'EDIT_PRODUCTS_AMOUNT':
-            return state.map(p => {
-                if (p.id === action.id) {
-                    return {
-                        ...p,
-                        amount: action.amount
-                    }
-                }
-                return p;
-            });
+        case ProductActions.EDIT_PRODUCTS_AMOUNT:
+            return state.map(p => p.id === action.id ? {...p, amount: action.amount} : p)
 
-        case 'RECEIVED_DATA':
+        case ProductActions.RECEIVED_DATA:
             return action.data.map(p => ({...p, id: uuid(), icon: icons[p.icon].icon}));
 
-        case "DATA_REQUEST_ERROR": {
-            console.log(action.error);
+        case ProductActions.DATA_REQUEST_ERROR: {
             return state;
         }
 
         default:
-            return state
+            return state;
     }
 };
 

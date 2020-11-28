@@ -18,7 +18,7 @@ code {
   min-height: 100%;
 }
 
-.icon {
+.Icon {
   background-color: #223951;
   display: inline-flex;
   align-items: center;
@@ -35,7 +35,7 @@ code {
   background-color: #565758;
 }
 
-.icon-options-wrapper {
+.Icon_optionsWrapper {
   background-color: #223951;
   display: inline-block;
   width: fit-content;
@@ -43,7 +43,7 @@ code {
   margin: 5px;
 }
 
-.product-buttons-wrapper {
+.ProductItem_buttonWrapper {
   position: relative;
   float: right;
 }
@@ -59,7 +59,7 @@ code {
   margin: 5px;
 }
 
-.product-list-item {
+.ProductItem {
   width: 90%;
   padding-left: 10px;
   height: 130px;
@@ -68,7 +68,7 @@ code {
   margin-bottom: 5px;
 }
 
-.product-list-description {
+.ProductItem_description {
   position: relative;
   display: inline-block;
 }

@@ -1,26 +1,42 @@
+import {ProductActions} from "../common/ProductActions";
+import {getAllProducts} from "../services/productsAPI";
+
 export const addProductAction = product => ({
-    type: 'ADD_PRODUCT',
+    type: ProductActions.ADD_PRODUCT,
     ...product
 });
 
+export const getProductsAction = () => {
+    return (dispatch) => {
+        getAllProducts()
+            .then(response => {
+                dispatch(onDataRequestSuccessAction(response.data))
+            })
+            .catch(error => {
+                dispatch(onDataRequestErrorAction)
+            })
+
+    }
+}
+
 export const editProductsAmountAction = ({id, amount}) => ({
-    type: 'EDIT_PRODUCTS_AMOUNT',
+    type: ProductActions.EDIT_PRODUCTS_AMOUNT,
     id: id,
     amount: amount
 });
 
 export const removeProductAction = id => ({
-    type: 'REMOVE_PRODUCT',
+    type: ProductActions.RECEIVED_DATA,
     id: id
 });
 
 
 export const onDataRequestSuccessAction = data => ({
-    type: 'RECEIVED_DATA',
+    type: ProductActions.RECEIVED_DATA,
     data: data
 });
 
 export const onDataRequestErrorAction = error => ({
-    type: 'DATA_REQUEST_ERROR',
+    type: ProductActions.DATA_REQUEST_ERROR,
     error: error
 });

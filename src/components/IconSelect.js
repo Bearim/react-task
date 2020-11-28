@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Icons as icons} from "./common/Icons";
+import {Icons as icons} from "../common/Icons";
 
 export const IconSelect = props => {
 
@@ -18,30 +18,16 @@ export const IconSelect = props => {
 
     return <div>
 
-        <div className='icon'>
+        <div className='Icon'>
             <FontAwesomeIcon icon={icon} className='fa-5x' onClick={changeShow}/>
         </div>
         <div>
             {show &&
-            <div className='icon-options-wrapper'>
-                <div className='icon selectable'>
-                    <FontAwesomeIcon icon={icons[0].icon} className='fa-5x' onClick={() => changeIcon(icons[0].icon)}/>
-                </div>
-
-                <div className='icon selectable'>
-                    <FontAwesomeIcon icon={icons[1].icon} className='fa-5x'
-                                     onClick={() => changeIcon(icons[1].icon)}/>
-                </div>
-
-                <div className='icon selectable'>
-                    <FontAwesomeIcon icon={icons[2].icon} className='fa-5x'
-                                     onClick={() => changeIcon(icons[2].icon)}/>
-                </div>
-
-                <div className='icon selectable'>
-                    <FontAwesomeIcon icon={icons[3].icon} className='fa-5x'
-                                     onClick={() => changeIcon(icons[3].icon)}/>
-                </div>
+            <div className='Icon_optionsWrapper'>
+                {icons.map(icon => (
+                <div className='Icon selectable'>
+                    <FontAwesomeIcon icon={icon.icon} className='fa-5x' onClick={() => changeIcon(icon.icon)}/>
+                </div> ))}
             </div>}
         </div>
     </div>

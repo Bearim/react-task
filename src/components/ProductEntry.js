@@ -16,8 +16,8 @@ const ProductEntry = ({product, dispatch}) => {
         dispatch(removeProductAction(product.id));
     };
 
-    return <div className='product-list-item'>
-               <div className='product-buttons-wrapper'>
+    return <div className='ProductItem'>
+               <div className='ProductItem_buttonWrapper'>
                    <button className='btn btn-sm btn-secondary' onClick={removeProduct}>
                        <FontAwesomeIcon icon={faTrashAlt}/>
                    </button>
@@ -26,11 +26,11 @@ const ProductEntry = ({product, dispatch}) => {
                    </Link>
                </div>
 
-               <div className='icon float-left'>
+               <div className='Icon float-left'>
                    <FontAwesomeIcon className='fa-5x' icon={product.icon}/>
                </div>
 
-               <div className='product-list-description text-center'>
+               <div className='ProductItem_description text-center'>
                    <div>{product.name}</div>
                    <div>
                        <Button onClick={() => handleAmountChange(product.amount - 1)}

@@ -5,17 +5,19 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const ProductDetails = ({product}) => {
 
+    const {price, amount, name} = product;
+
     return <div className='split right text-center'>
         <div className='centered'>
             <div>
-                <b>{product.name}</b>
+                <b>{name}</b>
             </div>
-            <div className='icon'>
+            <div className='Icon'>
                 <FontAwesomeIcon className='fa-5x' icon={product.icon}/>
             </div>
-            <div>Count: {product.amount}</div>
-            <div>Price: {product.price}$</div>
-            <div>Total: {product.amount * product.price}$</div>
+            <div>Count: {amount}</div>
+            <div>Price: {price}</div>
+            <div>Total: {amount * price}$</div>
             <Link className='btn btn-secondary' to=''>Back</Link>
         </div>
 
